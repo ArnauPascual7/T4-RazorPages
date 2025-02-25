@@ -24,13 +24,13 @@ namespace RazorPages.Pages
             string filePath = @"ModelData\" + fileName;
             if (FileWorking.File.Exists(filePath))
             {
-                FileWorking.File.AppendAllText(filePath, $"\n{NewProduct.ToString()}");
+                FileWorking.File.AppendAllText(filePath, NewProduct.ToString() + Environment.NewLine);
             }
             else
             {
                 MsgFileError = "Error de càrrega de dades";
             }
-            return Page();
+            return RedirectToPage("ViewProducts");
         }
     }
 }
